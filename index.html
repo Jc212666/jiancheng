@@ -13,8 +13,10 @@
   <meta property="og:type" content="website">
   <meta name="robots" content="index, follow">
   <meta property="og:url" content="https://jc212666.github.io/jiancheng/">
-  <link rel="canonical" href="https://jc212666.github.io/jiancheng/">
   <title>建鋮工程有限公司｜水電、電表、園藝、除草、鋸樹、外牆清洗、防鳥網、植生網、草籽</title>
+  <link rel="canonical" href="https://jc212666.github.io/jiancheng/">
+  <link rel="stylesheet" href="styles.css">
+  
   
   <style>
     :root {
@@ -482,6 +484,11 @@
   if (location.pathname.endsWith('/index.html')) {
     location.replace(location.pathname.replace('/index.html', '/') + location.search + location.hash);
   }
+
+  if (window.location.pathname.endsWith('/index.html')) {
+    window.location.replace(window.location.pathname.replace('/index.html', '/') + window.location.search + window.location.hash);
+  }
+
 
 </script>
 
