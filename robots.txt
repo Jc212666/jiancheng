@@ -1,4 +1,4 @@
 User-agent: *
-Allow: /
-
+Disallow: /jiancheng/index.html
+Allow: /jiancheng/
 Sitemap: https://jc212666.github.io/jiancheng/sitemap.xml
