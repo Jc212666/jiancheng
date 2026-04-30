@@ -19,7 +19,7 @@
         body { font-family: var(--font-sans); margin: 0; background: var(--navy); color: var(--white); -ms-overflow-style: none; scrollbar-width: none; font-weight: 300; }
         body::-webkit-scrollbar { display: none; }
 
-        /* --- 導覽列[cite: 6] --- */
+        /* --- 導覽列 --- */
         nav { 
             background: rgba(0, 35, 68, 0.9); 
             display: flex; 
@@ -66,12 +66,42 @@
         .section-title { font-family: var(--font-design); font-size: 2.8rem; color: var(--white); white-space: nowrap; letter-spacing: 4px; }
         .title-line { height: 1px; background: rgba(255,255,255,0.1); flex-grow: 1; }
 
-        /* --- 首頁 --- */
+        /* --- 首頁 (等長置中優化) --- */
         header { background: radial-gradient(circle at center, var(--navy-light) 0%, var(--navy) 100%); }
-        header h1 { font-family: var(--font-design); font-size: 5rem; color: var(--white); letter-spacing: 18px; margin-bottom: 1rem; font-weight: 700; }
-        header p { color: var(--hermes); font-weight: 500; letter-spacing: 8px; font-size: 1.1rem; }
+        
+        .hero-wrap {
+            text-align: center;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
 
-        /* --- 關於我們[cite: 5] --- */
+        header h1 { 
+            font-family: var(--font-design); 
+            font-size: 3.8rem; 
+            color: var(--white); 
+            margin: 0;
+            font-weight: 700;
+            width: 100%;
+            max-width: 700px; /* 控制標題總寬度 */
+            display: flex;
+            justify-content: space-between; /* 讓中文字均勻分布 */
+        }
+
+        header p { 
+            color: var(--hermes); 
+            font-weight: 500; 
+            font-size: 1.15rem; 
+            margin-top: 1.5rem;
+            width: 100%;
+            max-width: 700px; /* 與中文字寬度對齊 */
+            display: flex;
+            justify-content: space-between; /* 讓英文字母均勻分布 */
+            letter-spacing: 0;
+        }
+
+        /* --- 關於我們 --- */
         .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center; }
         .about-text p { font-size: 1.1rem; line-height: 2; color: rgba(255,255,255,0.8); }
         .cert-card { 
@@ -82,7 +112,7 @@
         .cert-card ul { padding: 0; margin: 0; list-style: none; }
         .cert-card li { margin-bottom: 12px; font-size: 0.95rem; color: rgba(255,255,255,0.9); border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px; }
 
-        /* --- 服務項目卡片 --- */
+        /* --- 服務項目 --- */
         .grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; }
         .card { 
             background: rgba(255,255,255,0.03); padding: 2rem 1rem; transition: 0.5s; text-align: center; 
@@ -93,7 +123,7 @@
         .card p { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
         .card:hover p { color: var(--white); }
 
-        /* --- 工程實績修正後樣式[cite: 8, 9] --- */
+        /* --- 工程實績 --- */
         .filter-buttons { margin-bottom: 2rem; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
         .filter-buttons button { 
             padding: 10px 20px; border: 1px solid rgba(255,255,255,0.1); 
@@ -101,7 +131,6 @@
         }
         .filter-buttons button.active, .filter-buttons button:hover { background: var(--hermes); border-color: var(--hermes); }
         
-        /* 橫列4張，直欄2張的設定 */
         .gallery { 
             display: grid; 
             grid-template-columns: repeat(4, 1fr); 
@@ -114,7 +143,6 @@
         .gallery-item:hover img { opacity: 1; transform: scale(1.05); }
         .tag { position: absolute; top: 0; left: 0; background: var(--hermes); color: var(--white); padding: 8px 15px; font-size: 0.7rem; z-index: 10; letter-spacing: 1px; }
 
-        /* 分頁控制項樣式 */
         .pagination { display: flex; justify-content: center; gap: 15px; margin-top: 2rem; }
         .pagination button {
             background: transparent; border: 1px solid rgba(255,255,255,0.3); color: var(--white);
@@ -123,7 +151,7 @@
         .pagination button.active { background: var(--hermes); border-color: var(--hermes); }
         .pagination button:disabled { opacity: 0.3; cursor: not-allowed; }
 
-        /* --- 人才招募[cite: 5] --- */
+        /* --- 人才招募 --- */
         .recruit-card { 
             background: rgba(255,255,255,0.03); padding: 3rem; width: 100%; text-align: center;
             border: 1px solid rgba(255,255,255,0.05); position: relative;
@@ -132,7 +160,7 @@
         .recruit-card h3 { color: var(--hermes); margin-bottom: 2rem; font-size: 1.8rem; }
         .recruit-card p { font-size: 1.1rem; margin-bottom: 1rem; }
 
-        /* --- 聯絡我們[cite: 4, 5] --- */
+        /* --- 聯絡我們 --- */
         .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; width: 100%; max-width: 1000px; }
         .contact-item { margin-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 15px; }
         .contact-item strong { color: var(--hermes); margin-right: 20px; width: 80px; display: inline-block; font-size: 0.85rem; letter-spacing: 2px; }
@@ -146,6 +174,14 @@
         .hide { display: none !important; }
 
         footer { padding: 3rem; text-align: center; font-size: 0.8rem; color: rgba(255,255,255,0.3); border-top: 1px solid rgba(255,255,255,0.05); scroll-snap-align: end; }
+
+        @media (max-width: 768px) {
+            header h1, header p { max-width: 90%; font-size: 2rem; }
+            header p { font-size: 0.8rem; }
+            .grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery { grid-template-columns: repeat(2, 1fr); }
+            .about-grid, .contact-container { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -160,9 +196,17 @@
 </nav>
 
 <header id="home">
-    <div class="reveal">
-        <h1>建鋮工程</h1>
-        <p>JIAN CHENG ENGINEERING CO., LTD.</p>
+    <div class="reveal hero-wrap">
+        <h1>
+            <span>建</span><span>鋮</span><span>工</span><span>程</span><span>有</span><span>限</span><span>公</span><span>司</span>
+        </h1>
+        <p>
+            <span>J</span><span>I</span><span>A</span><span>N</span>&nbsp;
+            <span>C</span><span>H</span><span>E</span><span>N</span><span>G</span>&nbsp;
+            <span>E</span><span>N</span><span>G</span><span>I</span><span>N</span><span>E</span><span>E</span><span>R</span><span>I</span><span>N</span><span>G</span>&nbsp;
+            <span>C</span><span>O</span><span>.</span><span>,</span>&nbsp;
+            <span>L</span><span>T</span><span>D</span><span>.</span>
+        </p>
     </div>
 </header>
 
@@ -199,7 +243,6 @@
     </div>
 </section>
 
-<!-- 工程實績區塊修正 -->
 <section id="projects">
     <div class="container reveal">
         <div class="section-title-wrap"><h2 class="section-title">工程實績</h2><div class="title-line"></div></div>
@@ -230,9 +273,7 @@
             <div class="gallery-item" data-category="其他工程"><img src="壁紙撕除.jpg" alt="壁紙撕除"><span class="tag">壁紙撕除</span></div>
         </div>
 
-        <div class="pagination" id="pagination">
-            <!-- 分頁按鈕由 JS 生成 -->
-        </div>
+        <div class="pagination" id="pagination"></div>
     </div>
 </section>
 
@@ -277,38 +318,30 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // --- 實績分頁與篩選邏輯修正 ---
-    const itemsPerPage = 8; // 橫4 x 直2 = 8張
+    // 實績分頁與篩選
+    const itemsPerPage = 8;
     let currentPage = 1;
     let currentFilter = 'all';
     const allItems = Array.from(document.querySelectorAll('.gallery-item'));
 
     function updateGallery() {
-        // 1. 先根據分類篩選
         const filteredItems = allItems.filter(item => 
             currentFilter === 'all' || item.getAttribute('data-category') === currentFilter
         );
-
-        // 2. 計算總頁數
         const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
         if (currentPage > totalPages) currentPage = 1;
 
-        // 3. 隱藏所有項目
         allItems.forEach(item => item.classList.add('hide'));
-
-        // 4. 顯示目前頁面的項目
         const start = (currentPage - 1) * itemsPerPage;
         const end = start + itemsPerPage;
         filteredItems.slice(start, end).forEach(item => item.classList.remove('hide'));
 
-        // 5. 更新分頁按鈕
         renderPagination(totalPages);
     }
 
     function renderPagination(totalPages) {
         const paginationContainer = document.getElementById('pagination');
         paginationContainer.innerHTML = '';
-        
         if (totalPages <= 1) return;
 
         for (let i = 1; i <= totalPages; i++) {
@@ -326,18 +359,16 @@
 
     const filterItems = (filter) => {
         currentFilter = filter;
-        currentPage = 1; // 切換分類時回到第一頁
+        currentPage = 1;
         const buttons = document.querySelectorAll('.filter-buttons button');
         buttons.forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-filter') === filter));
         updateGallery();
     };
 
-    // 綁定篩選按鈕點擊
     document.querySelectorAll('.filter-buttons button').forEach(button => {
         button.addEventListener('click', () => filterItems(button.getAttribute('data-filter')));
     });
 
-    // 初始載入
     updateGallery();
 
     function linkToProject(categoryName) {
@@ -345,7 +376,7 @@
         filterItems(categoryName);
     }
 
-    // 燈箱邏輯
+    // 燈箱
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     document.querySelectorAll('.gallery-item img').forEach(img => {
