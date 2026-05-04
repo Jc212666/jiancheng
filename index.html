@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <!-- 自動跳轉 JavaScript：確保舊網址流量引導至新網域 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 引入 Google 字體與 圖示庫 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&family=Noto+Sans+TC:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <!-- 自動跳轉 JavaScript -->
     <script type="text/javascript">
         if (window.location.hostname === 'jc212666.github.io') {
             window.location.replace("https://jcheng-eng.com" + window.location.pathname + window.location.search);
@@ -72,7 +79,7 @@
         .section-title { font-family: var(--font-design); font-size: 2.4rem; color: var(--white); white-space: nowrap; letter-spacing: 3px; }
         .title-line { height: 1px; background: rgba(255,255,255,0.1); flex-grow: 1; }
 
-        /* --- 首頁標題等長置中 --- */
+        /* --- 首頁 Header --- */
         header { background: radial-gradient(circle at center, var(--navy-light) 0%, var(--navy) 100%); }
         .hero-wrap { text-align: center; display: inline-flex; flex-direction: column; align-items: center; width: 100%; }
 
@@ -82,11 +89,43 @@
             width: 100%; max-width: 700px; 
             display: flex; justify-content: space-between; 
         }
-        header p { 
+        header p.en-name { 
             color: var(--hermes); font-weight: 500; font-size: clamp(0.6rem, 3vw, 1.15rem); 
             margin-top: 1.5rem; width: 100%; max-width: 700px; 
             display: flex; justify-content: space-between; 
             letter-spacing: 0;
+        }
+
+        /* --- 五大服務卡片樣式 (與首頁一致) --- */
+        .hero-services-grid, .services-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            width: 100%;
+            max-width: 1100px;
+            margin-top: 3rem;
+        }
+        .hero-card, .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem 0.5rem;
+            transition: 0.4s;
+            cursor: pointer;
+            text-align: center;
+        }
+        .hero-card:hover, .card:hover { 
+            background: rgba(230, 84, 39, 0.15); 
+            border-color: var(--hermes); 
+            transform: translateY(-8px); 
+        }
+        .hero-card .icon, .card .icon { 
+            font-size: 2.8rem; color: var(--hermes); margin-bottom: 1.2rem; display: block;
+        }
+        .hero-card h3, .card h3 { 
+            font-size: 1.1rem; margin: 0.5rem 0; font-weight: 500; letter-spacing: 2px; color: var(--white);
+        }
+        .hero-card p, .card p { 
+            font-size: 0.75rem; color: rgba(255, 255, 255, 0.5); margin: 0; line-height: 1.5;
         }
 
         /* --- 關於我們 --- */
@@ -98,16 +137,6 @@
         }
         .cert-card h3 { color: var(--hermes); margin-bottom: 1.2rem; font-size: 1.3rem; }
         .cert-card li { margin-bottom: 10px; font-size: 0.95rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 5px; list-style: none; }
-
-        /* --- 服務項目 --- */
-        .services-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; width: 100%; }
-        .card { 
-            background: rgba(255,255,255,0.03); padding: 2rem 1rem; transition: 0.4s; text-align: center; 
-            border: 1px solid rgba(255,255,255,0.05); cursor: pointer;
-        }
-        .card:hover { background: var(--hermes); transform: translateY(-5px); }
-        .card h3 { font-size: 1.05rem; margin-bottom: 0.8rem; }
-        .card p { color: rgba(255,255,255,0.6); font-size: 0.8rem; }
 
         /* --- 工程實績 --- */
         .filter-buttons { margin-bottom: 2rem; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
@@ -152,16 +181,18 @@
         .qr-card img { max-width: 140px; border: 5px solid var(--white); margin-top: 15px; }
 
         /* --- 手機版響應式 --- */
+        @media (max-width: 992px) {
+            .hero-services-grid, .services-grid { grid-template-columns: repeat(3, 1fr); }
+        }
         @media (max-width: 768px) {
             .about-grid, .contact-container { grid-template-columns: 1fr; }
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .services-grid, .hero-services-grid { grid-template-columns: repeat(2, 1fr); }
             .gallery { grid-template-columns: repeat(2, 1fr); gap: 10px; }
             .section-title { font-size: 1.8rem; }
             .nav-btn .zh { font-size: 0.75rem; }
         }
 
         .hide { display: none !important; }
-        /* 燈箱樣式確保填滿畫面 */
         .lightbox { 
             display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; 
             background: rgba(0,0,0,0.9); justify-content: center; align-items: center; cursor: pointer;
@@ -184,11 +215,40 @@
 <header id="home">
     <div class="reveal hero-wrap">
         <h1><span>建</span><span>鋮</span><span>工</span><span>程</span><span>有</span><span>限</span><span>公</span><span>司</span></h1>
-        <p>
+        <p class="en-name">
             <span>J</span><span>I</span><span>A</span><span>N</span>&nbsp;<span>C</span><span>H</span><span>E</span><span>N</span><span>G</span>&nbsp;
             <span>E</span><span>N</span><span>G</span><span>I</span><span>N</span><span>E</span><span>E</span><span>R</span><span>I</span><span>N</span><span>G</span>&nbsp;
             <span>C</span><span>O</span><span>.</span><span>,</span>&nbsp;<span>L</span><span>T</span><span>D</span><span>.</span>
         </p>
+
+        <!-- 首頁五大服務卡片 -->
+        <div class="hero-services-grid">
+            <div class="hero-card" onclick="linkToProject('建築修繕')">
+                <span class="material-icons-outlined icon">home</span>
+                <h3>建築修繕</h3>
+                <p>老屋翻修、防水、外牆拉皮</p>
+            </div>
+            <div class="hero-card" onclick="linkToProject('水電工程')">
+                <span class="material-icons-outlined icon">bolt</span>
+                <h3>水電工程</h3>
+                <p>電力整合、專業水電修繕</p>
+            </div>
+            <div class="hero-card" onclick="linkToProject('景觀園藝')">
+                <span class="material-icons-outlined icon">park</span>
+                <h3>景觀園藝</h3>
+                <p>護坡、綠地維護、除草鋸樹</p>
+            </div>
+            <div class="hero-card" onclick="linkToProject('高空作業')">
+                <span class="material-icons-outlined icon">precision_manufacturing</span>
+                <h3>高空作業</h3>
+                <p>屋頂修繕、外牆清洗、防鳥網</p>
+            </div>
+            <div class="hero-card" onclick="linkToProject('其他工程')">
+                <span class="material-icons-outlined icon">handyman</span>
+                <h3>其他工程</h3>
+                <p>貨櫃屋、拆除、標線工程</p>
+            </div>
+        </div>
     </div>
 </header>
 
@@ -210,15 +270,36 @@
     </div>
 </section>
 
+<!-- 服務項目區塊：已套用與首頁相同的圖示 -->
 <section id="services">
     <div class="container reveal">
         <div class="section-title-wrap"><h2 class="section-title">服務項目</h2><div class="title-line"></div></div>
         <div class="services-grid">
-            <div class="card" onclick="linkToProject('建築修繕')"><h3>建築修繕</h3><p>老屋翻修、防水、外牆拉皮</p></div>            
-            <div class="card" onclick="linkToProject('水電工程')"><h3>水電工程</h3><p>電力整合、專業水電修繕</p></div>
-            <div class="card" onclick="linkToProject('景觀園藝')"><h3>景觀園藝</h3><p>護坡、綠地維護、除草鋸樹</p></div>
-            <div class="card" onclick="linkToProject('高空作業')"><h3>高空作業</h3><p>屋頂修繕、外牆清洗、防鳥網</p></div>
-            <div class="card" onclick="linkToProject('其他工程')"><h3>其他工程</h3><p>貨櫃屋、拆除、標線工程</p></div>
+            <div class="card" onclick="linkToProject('建築修繕')">
+                <span class="material-icons-outlined icon">home</span>
+                <h3>建築修繕</h3>
+                <p>老屋翻修、防水、外牆拉皮</p>
+            </div>            
+            <div class="card" onclick="linkToProject('水電工程')">
+                <span class="material-icons-outlined icon">bolt</span>
+                <h3>水電工程</h3>
+                <p>電力整合、專業水電修繕</p>
+            </div>
+            <div class="card" onclick="linkToProject('景觀園藝')">
+                <span class="material-icons-outlined icon">park</span>
+                <h3>景觀園藝</h3>
+                <p>護坡、綠地維護、除草鋸樹</p>
+            </div>
+            <div class="card" onclick="linkToProject('高空作業')">
+                <span class="material-icons-outlined icon">precision_manufacturing</span>
+                <h3>高空作業</h3>
+                <p>屋頂修繕、外牆清洗、防鳥網</p>
+            </div>
+            <div class="card" onclick="linkToProject('其他工程')">
+                <span class="material-icons-outlined icon">handyman</span>
+                <h3>其他工程</h3>
+                <p>貨櫃屋、拆除、標線工程</p>
+            </div>
         </div>
     </div>
 </section>
@@ -285,19 +366,16 @@
 
 <footer><p>© 2026 建鋮工程有限公司 JIAN CHENG ENGINEERING. ALL RIGHTS RESERVED.</p></footer>
 
-<!-- 燈箱 HTML -->
 <div class="lightbox" id="lightbox">
     <img class="lightbox-content" id="lightboxImg" onclick="event.stopPropagation()">
 </div>
 
 <script>
-    // 捲動揭露效果
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // 分頁與篩選邏輯
     const getItemsPerPage = () => window.innerWidth <= 768 ? 6 : 8; 
     let currentPage = 1;
     let currentFilter = 'all';
@@ -336,7 +414,6 @@
         }
     }
 
-    // 篩選按鈕點擊
     document.querySelectorAll('.filter-buttons button').forEach(button => {
         button.addEventListener('click', () => {
             currentFilter = button.getAttribute('data-filter');
@@ -347,7 +424,6 @@
         });
     });
 
-    // 服務項目與實績聯動修正
     function linkToProject(cat) {
         currentFilter = cat;
         currentPage = 1;
@@ -357,7 +433,6 @@
         updateGallery(true);
     }
 
-    // 燈箱邏輯修正：點擊空白關閉
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     document.querySelectorAll('.gallery-item img').forEach(img => {
@@ -367,7 +442,6 @@
             lightboxImg.src = img.src;
         });
     });
-    // 點擊燈箱背景關閉
     lightbox.addEventListener('click', () => { lightbox.style.display = 'none'; });
 
     window.addEventListener('resize', updateGallery);
