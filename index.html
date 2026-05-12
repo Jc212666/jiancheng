@@ -17,6 +17,52 @@
 
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "建鋮工程有限公司",
+  "alternateName": "JIAN CHENG ENGINEERING CO., LTD.",
+  "image": "https://jcheng-eng.com/logo.png", 
+  "@id": "https://jcheng-eng.com",
+  "url": "https://jcheng-eng.com",
+  "telephone": "+886-7-398-5633",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "自強一路22號3樓之1",
+    "addressLocality": "前金區",
+    "addressRegion": "高雄市",
+    "postalCode": "801",
+    "addressCountry": "TW"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 22.6288,
+    "longitude": 120.2930
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "08:30",
+    "closes": "17:30"
+  },
+  "sameAs": [
+    "https://www.1111.com.tw/corp/73561001/"
+  ],
+  "description": "建鋮工程深耕高雄，提供專業水電工程、老屋翻新翻修、建築修繕、外牆清洗、防鳥網防墜網安裝、景觀園藝、高空作業、屋頂修繕及鐵皮浪板修繕。具備乙級電匠與工地主任證照，給您最安心的施工品質。",
+  "areaServed": {
+    "@type": "City",
+    "name": "高雄市"
+  }
+}
+</script>
+
     <style>
         :root {
             --navy: #002344;
@@ -137,6 +183,18 @@
         .cert-card li { margin-bottom: 10px; font-size: 0.95rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 5px; list-style: none; }
 
         /* --- 工程實績 --- */
+        /* 新增：歷年工程案名清單樣式 */
+        .project-list-box {
+            width: 100%; margin-bottom: 3rem; padding: 1.5rem; 
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+        }
+        .project-list-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 30px;
+        }
+        .project-list-item {
+            font-size: 1rem; color: rgba(255,255,255,0.8); display: flex; align-items: center;
+        }
+
         .filter-buttons { margin-bottom: 2rem; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
         .filter-buttons button { 
             padding: 8px 16px; border: 1px solid rgba(255,255,255,0.1); 
@@ -189,6 +247,7 @@
             .gallery { grid-template-columns: repeat(2, 1fr); gap: 10px; }
             .section-title { font-size: 1.8rem; }
             .nav-btn .zh { font-size: 0.75rem; }
+            .project-list-grid { grid-template-columns: 1fr; }
         }
 
         .hide { display: none !important; }
@@ -305,6 +364,23 @@
 <section id="projects">
     <div class="container reveal">
         <div class="section-title-wrap"><h2 class="section-title">工程實績</h2><div class="title-line"></div></div>
+        
+        <div class="project-list-box">
+            <div class="project-list-grid">
+                <div class="project-list-item"><li>111年度中山大學宿舍維修</li></div>
+                <div class="project-list-item"><li>112年度高雄港全區辦公室及廁所水電修繕工程</li></div>
+                <div class="project-list-item"><li>113年度高雄港全區辦公室及廁所水電修繕工程</li></div>
+                <div class="project-list-item"><li>114年度高雄港全區辦公室及廁所水電修繕工程</li></div>
+                <div class="project-list-item"><li>高雄港倉4庫新增分電表及電力線改接等工程</li></div>
+                <div class="project-list-item"><li>高雄港停車格標線案</li></div>
+                <div class="project-list-item"><li>高雄壽山東南側外來種移除及復育案</li></div>
+                <div class="project-list-item"><li>七賢路高雄港牌樓屋簷脊獸修繕工程</li></div>
+                <div class="project-list-item"><li>高雄市鼓山區清潔隊備勤貨櫃屋建置案</li></div>
+                <div class="project-list-item"><li>高雄市鼓山區清潔隊簡易廁所建置</li></div>
+                <div class="project-list-item"><li>高雄市鳳山北區清潔隊貨櫃拆遷移設案</li></div>
+            </div>
+        </div>
+
         <div class="filter-buttons">
             <button class="active" data-filter="all">全部</button>
             <button data-filter="建築修繕">建築修繕</button>
@@ -349,7 +425,7 @@
            <p>歡迎具備水電、營建、工務經驗的夥伴加入！</p>
            <p><strong>薪資範圍：</strong> 月薪 36,000 ~ 52,000 元</p>
            <p>詳細資訊請參閱 <a href="https://www.1111.com.tw/corp/73561001/" target="_blank">1111人力銀行</a></p>
-           <p>或請加入官方Line與我們聯繫！ <a href="https://line.me/ti/p/@391ihpfb" target="_blank" >人才招募</a> </p>
+           <p>或請直接<a href="https://line.me/ti/p/@391ihpfb" target="_blank" style="color:var(--hermes)">點我加入官方Line</a> ，直接與我們聯繫!</p>
         </div>
     </div>
 </section>
